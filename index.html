@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Safira Profile</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+overflow:hidden;
+
+background: linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1c92d2);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+.container{
+background:rgba(0,0,0,0.35);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 30px rgba(0,0,0,0.5);
+width:500px;
+}
+
+img{
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+box-shadow:0 0 25px #00eaff;
+margin-bottom:20px;
+
+animation:float 4s ease-in-out infinite;
+transition:1s;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+h1{
+margin:10px 0;
+font-size:28px;
+}
+
+#typing{
+font-size:16px;
+min-height:60px;
+margin-top:10px;
+}
+
+.project{
+margin-top:25px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,0.3);
+}
+
+.project h2{
+margin-bottom:10px;
+}
+
+a{
+color:#00eaff;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img id="foto" src="foto1.png">
+
+<h1>Safira Dina Febriana</h1>
+
+<div id="typing"></div>
+
+<div class="project">
+
+<h2>My Project</h2>
+
+<p>
+E-Sniffer: Raw Meat Freshness Detection Tool Based on Odor Classification and Fuzzy Logic Utilizing Gas Fusion Sensor
+</p>
+
+<p>
+DOI: 
+<a href="https://doi.org/10.18280/i2m.240201" target="_blank">
+https://doi.org/10.18280/i2m.240201
+</a>
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const photos=["foto1.png","foto2.png"];
+let p=0;
+
+setInterval(()=>{
+p++;
+if(p>=photos.length){p=0;}
+document.getElementById("foto").src=photos[p];
+},3000);
+
+const text="My name is Safira Dina Febriana, Diploma (III) Computer Engineering graduate from Telkom University.";
+
+let i=0;
+
+function typing(){
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,40);
+}
+}
+
+typing();
+
+</script>
+
+</body>
+</html>
